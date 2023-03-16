@@ -20,6 +20,7 @@
 #  no_operators_phone_message :text
 #  no_operators_text_message  :text
 #  voicemail_greeting         :text
+#  voicemail_per_day_limit    :integer          default(1)
 #
 # Indexes
 #
@@ -30,5 +31,5 @@ class LineSerializer
   include JSONAPI::Serializer
 
   attributes :id, :name, :number, :is_active, :phone_greeting_message, :greeting_audio, :record_calls,
-             :recording_save_length, :accepts_phone_calls, :accepts_text_messages, :accepts_voicemails, :no_operators_phone_message, :no_operators_text_message, :voicemail_greeting
+             :recording_save_length, :accepts_phone_calls, :accepts_text_messages, :accepts_voicemails, :no_operators_phone_message, :no_operators_text_message, :voicemail_greeting, :voicemail_per_day_limit
 end

@@ -27,4 +27,5 @@ class ContactPhone < ApplicationRecord
   end
 
   belongs_to :contact
+  has_many :conversation
 end

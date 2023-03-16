@@ -35,7 +35,7 @@ class Conversation < ApplicationRecord
 
   # has_many :conversation_participant
   belongs_to :contact_phone
-  has_one :contact, through: :contact_phone
+  has_one :contact, through: :contact_phones
 
   has_many :tag_groups
   has_many :tag_instances, through: :tag_groups
@@ -49,6 +49,9 @@ class Conversation < ApplicationRecord
   scope :unlogged, -> { completed.where(notes: nil) }
   scope :logged, -> { completed.where.not(notes: nil) }
   scope :recent, -> { order(created_at: :desc).limit(50) }
+  scope :voicemail, -> { where(is_voicemail: true) }
+  scope :unacknowledged_voicemail, -> { where(is_voicemail: true).where(voicemail_acknowledged: nil) }
+  scope :today, -> { where("started_at > ?", Date.today)}
 
   def deep_tag_groups
     groups = []

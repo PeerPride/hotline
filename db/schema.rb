@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_16_232936) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_16_234532) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -105,6 +105,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_232936) do
     t.text "no_operators_phone_message"
     t.text "no_operators_text_message"
     t.text "voicemail_greeting"
+    t.integer "voicemail_per_day_limit", default: 1
     t.index ["name"], name: "index_lines_on_name", unique: true
     t.index ["number"], name: "index_lines_on_number"
   end

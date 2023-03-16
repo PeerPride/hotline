@@ -20,6 +20,7 @@
 #  no_operators_phone_message :text
 #  no_operators_text_message  :text
 #  voicemail_greeting         :text
+#  voicemail_per_day_limit    :integer          default(1)
 #
 # Indexes
 #
