@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_16_125949) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_16_232936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,6 +68,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_16_125949) do
     t.datetime "updated_at", null: false
     t.bigint "contact_phone_id", null: false
     t.bigint "conversation_category_id"
+    t.string "recording_id"
+    t.boolean "is_voicemail", default: false
+    t.datetime "voicemail_acknowledged", precision: nil
     t.index ["contact_phone_id"], name: "index_conversations_on_contact_phone_id"
     t.index ["conversation_category_id"], name: "index_conversations_on_conversation_category_id"
   end

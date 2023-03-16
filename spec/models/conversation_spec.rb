@@ -16,6 +16,9 @@
 #  updated_at               :datetime         not null
 #  contact_phone_id         :bigint           not null
 #  conversation_category_id :bigint
+#  recording_id             :string
+#  is_voicemail             :boolean          default(FALSE)
+#  voicemail_acknowledged   :datetime
 #
 # Indexes
 #

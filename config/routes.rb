@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   post 'incoming_call', to: 'incoming#voice'
   post 'incoming_sms', to: 'incoming#sms'
 
+  post 'recording_callback', to: 'incoming#recording_complete', as: :recording_complete
+
   get '/panel(/*path)', to: 'application#panel', as: :panel
   get '/(*path)', to: 'application#website', as: :website
 end

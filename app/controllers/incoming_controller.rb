@@ -33,6 +33,28 @@ class IncomingController < ApplicationController
     c.provider_id = params[:CallSid]
     c.contact_phone = contact_phone
     c.save!
+
+    if @incoming_line.accepts_voicemails
+      Twilio::TwiML::VoiceResponse.new do |r|
+        r.say(@incoming_line.voicemail_greeting)
+        r.record(action: recording_complete_url)
+
+        r.hangup
+      end
+    end
+  end
+
+  def recording_complete
+    c = Conversation.where(:provider_id => params[:CallSid]).first
+    return if !c.present?
+
+    if params[:RecordingStatus] == 'failed'
+      Rails.logger.info "Failed recording for #{c.id}"
+      return
+    end
+
+    c.recording_id = params[:RecordingSid]
+    c.save!
   end
 
   def sms; end
