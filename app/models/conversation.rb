@@ -35,7 +35,7 @@ class Conversation < ApplicationRecord
 
   # has_many :conversation_participant
   belongs_to :contact_phone
-  has_one :contact, through: :contact_phones
+  has_one :contact, through: :contact_phone
 
   has_many :tag_groups
   has_many :tag_instances, through: :tag_groups
