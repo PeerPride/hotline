@@ -34,7 +34,7 @@ class IncomingController < ApplicationController
     c.contact_phone = contact_phone
     c.save!
 
-    if @incoming_line.accepts_voicemails && c.conversations.voicemail.today.count < @incomine_line.voicemail_per_day_limit
+    if @incoming_line.accepts_voicemails && contact.conversations.voicemail.today.count < @incomine_line.voicemail_per_day_limit
       Twilio::TwiML::VoiceResponse.new do |r|
         r.say(@incoming_line.voicemail_greeting)
         r.record(action: recording_complete_url)
