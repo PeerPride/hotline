@@ -10,7 +10,7 @@ RUN apk add --update \
   git \
   postgresql-dev \
   tzdata \
-  nodejs=$NODE_VERSION \
+#  nodejs=$NODE_VERSION \
   yarn=$YARN_VERSION
 
 ######################################################################

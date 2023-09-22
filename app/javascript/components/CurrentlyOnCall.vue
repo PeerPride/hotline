@@ -3,7 +3,7 @@
 <template>
   <h1 class="h3">On Call</h1>
   <figure>
-    <img src="/img/chris.jpg" />
+    <!-- <img src="/img/chris.jpg" /> -->
     <figcaption>chris</figcaption>
   </figure>
 </template>
